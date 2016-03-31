@@ -1,0 +1,34 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Map Aware Scroll</title>
+  <meta name="viewport" content="initial-scale=1"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css" rel="stylesheet" />
+  <link href="css/visual.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="earth">
+    <h1>Map Aware Scroll</h1>
+
+    <p>There is a common issue when scrolling page with map that translates
+    scroll into zoom once cursor reaches the map element. This is pretty
+    confusing for the user and causes significant traffic leaks.</p>
+
+    <p>This solution deactivates map zoom on scroll if there is ongoing page
+    scroll. It waits n miliseconds (pause) and then enables zoom on scroll.</p>
+
+    <p>Why 600 ms? Avg. human reaction time is ~200 ms. So reaction on page
+    movement ~200 ms + cursor position correction ~200ms + reaction on click
+    or tap ~200 ms. This approximation does not cover all cases but based on
+    common behavour pattern.</p>
+
+    <h2>Scroll it!</h2>
+    <div id="awesome-map"></div>
+    <div>Then move cursor over map, wait 1 sec and try to scroll again.</div>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js"></script>
+  <script src="js/helpers.js"></script>
+</body>
+</html>
